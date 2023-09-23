@@ -1,6 +1,5 @@
 <template>
   <div class="hours">
-    <h1>Hours</h1>
     <Hours />
   </div>
 </template>

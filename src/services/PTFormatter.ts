@@ -17,7 +17,7 @@ export function parseInput(input: string) {
   // 1H => [0, 0, 1]
   const inputAsUpper = input.toUpperCase();
   const weeks = inputAsUpper.match(/(\d+\.?\d*)W/)?.[1];
-  const pts = inputAsUpper.match(/(\d+\.?\d*)PT/)?.[1];
+  const pts = inputAsUpper.match(/(\d+\.?\d*)D/)?.[1];
   const hours = inputAsUpper.match(/(\d+\.?\d*)H/)?.[1];
 
   const weeksAsNumber = (weeks && parseFloat(weeks.trim())) || 0;
