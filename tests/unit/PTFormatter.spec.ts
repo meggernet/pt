@@ -1,44 +1,104 @@
-import {toPT, calculateTotalHours, parseInput} from "@/services/PTFormatter";
+import { toPT, calculateTotalHours, parseInput } from "@/services/PTFormatter";
 
 describe("PTFormatter => toPT", () => {
   it("can format from 1W to 5PT", () => {
     const input = "1W";
+    const inputPThasHours = 6;
+    const outputPThasHours = 6;
     const expected = "5PT";
-    expect(toPT(input)).toStrictEqual(expected);
+    expect(toPT(input, inputPThasHours, outputPThasHours)).toStrictEqual(
+      expected
+    );
   });
 
   it("is case insensitive", () => {
     const input = "1w";
+    const inputPThasHours = 6;
+    const outputPThasHours = 6;
     const expected = "5PT";
-    expect(toPT(input)).toStrictEqual(expected);
+    expect(toPT(input, inputPThasHours)).toStrictEqual(expected);
+  });
+
+  it("formats to correct output for 6H and onePThasHours=6", () => {
+    const input = "6H";
+    const inputPThasHours = 6;
+    const outputPThasHours = 6;
+    const expected = "1PT";
+
+    expect(toPT(input, inputPThasHours, outputPThasHours)).toStrictEqual(
+      expected
+    );
+  });
+
+  it("formats to correct output for 6H and onePThasHours=8", () => {
+    const input = "6H";
+    const inputPThasHours = 8;
+    const outputPThasHours = 8;
+    const expected = "0.75PT";
+
+    expect(toPT(input, inputPThasHours, outputPThasHours)).toStrictEqual(
+      expected
+    );
+  });
+
+  it("formats to correct output for 8H and onePThasHours=6", () => {
+    const input = "8H";
+    const inputPThasHours = 6;
+    const outputPThasHours = 6;
+    const expected = "1.3333333333333333PT";
+
+    expect(toPT(input, inputPThasHours, outputPThasHours)).toStrictEqual(expected);
+  });
+
+  it("formats to correct output for 8H and onePThasHours=8", () => {
+    const input = "8H";
+    const inputPThasHours = 8;
+    const outputPThasHours = 8;
+    const expected = "1PT";
+
+    expect(toPT(input, inputPThasHours, outputPThasHours)).toStrictEqual(expected);
   });
 
   it.each([
-    ["1W1D", "6PT"],
-    ["1w1d", "6PT"],
-    ["1W 1d", "6PT"],
-    ["1w 1D", "6PT"],
-    ["1w 2d", "7PT"],
-    ["2w 1d", "11PT"],
+    ["1W1D", 6, 6, "6PT"],
+    ["1w1d", 6, 6, "6PT"],
+    ["1W 1d", 6, 6, "6PT"],
+    ["1w 1D", 6, 6, "6PT"],
+    ["1w 2d", 6, 6, "7PT"],
+    ["2w 1d", 6, 6, "11PT"],
   ])(
     "can format more complex inputs '%s' to PT",
-    (input: string, expected: string) => {
-      expect(toPT(input)).toStrictEqual(expected);
+    (
+      input: string,
+      inputPThasHours: number,
+      outputPThasHours: number,
+      expected: string
+    ) => {
+      expect(toPT(input, inputPThasHours, outputPThasHours)).toStrictEqual(
+        expected
+      );
     }
   );
 
   it.each([
-    ["1W1D4H", 8, "6.5PT"],
-    ["1w1d4h", 8, "6.5PT"],
-    ["1W 1d 4h", 8, "6.5PT"],
-    ["1w 1D 4h", 8, "6.5PT"],
-    ["1w 2d 4H", 8, "7.5PT"],
-    ["2w 1d 4H", 8, "11.5PT"],
-    ["1w1d3h", 6, "6.5PT"],
+    ["1W1D4H", 8, 8, "6.5PT"],
+    ["1w1d4h", 8, 8, "6.5PT"],
+    ["1W 1d 4h", 8, 8, "6.5PT"],
+    ["1w 1D 4h", 8, 8, "6.5PT"],
+    ["1w 2d 4H", 8, 8, "7.5PT"],
+    ["2w 1d 4H", 8, 8, "11.5PT"],
+    ["1w1d3h", 6, 6, "6.5PT"],
   ])(
     "can format more complex inputs with hours '%s' to PT",
-    (input: string, onePThasHours: number, expected: string) => {
-      expect(toPT(input, onePThasHours)).toStrictEqual(expected);
+    (
+      input: string,
+      inputPThasHours: number,
+      outputPThasHours: number,
+      expected: string
+    ) => {
+      expect(toPT(input, inputPThasHours, outputPThasHours)).toStrictEqual(
+        expected
+      );
     }
   );
 });
@@ -46,44 +106,62 @@ describe("PTFormatter => toPT", () => {
 describe("PTFormatter => Hours to PT", () => {
   it("can output 1PT from 8H if 1PT=8H", () => {
     const input = "8H";
-    const onePThasHours = 8;
+    const inputPThasHours = 8;
+    const outputPThasHours = 8;
     const expected = "1PT";
-    expect(toPT(input, onePThasHours)).toStrictEqual(expected);
+    expect(toPT(input, inputPThasHours, outputPThasHours)).toStrictEqual(
+      expected
+    );
   });
 
   it("can output 1PT from 6H if 1PT=6H", () => {
     const input = "6H";
-    const onePThasHours = 6;
+    const inputPThasHours = 6;
+    const outputPThasHours = 6;
     const expected = "1PT";
-    expect(toPT(input, onePThasHours)).toStrictEqual(expected);
+    expect(toPT(input, inputPThasHours, outputPThasHours)).toStrictEqual(
+      expected
+    );
   });
 
   it("can output 0.5PT from 4H if 1PT=8H", () => {
     const input = "4H";
-    const onePThasHours = 8;
+    const inputPThasHours = 8;
+    const outputPThasHours = 8;
     const expected = "0.5PT";
-    expect(toPT(input, onePThasHours)).toStrictEqual(expected);
+    expect(toPT(input, inputPThasHours, outputPThasHours)).toStrictEqual(
+      expected
+    );
   });
 
   it("can output 0.5PT from 3H if 1PT=6H", () => {
     const input = "3H";
-    const onePThasHours = 6;
+    const inputPThasHours = 6;
+    const outputPThasHours = 6;
     const expected = "0.5PT";
-    expect(toPT(input, onePThasHours)).toStrictEqual(expected);
+    expect(toPT(input, inputPThasHours, outputPThasHours)).toStrictEqual(
+      expected
+    );
   });
 
   it("can output 0.25PT from 2H if 1PT=8H", () => {
     const input = "2H";
-    const onePThasHours = 8;
+    const inputPThasHours = 8;
+    const outputPThasHours = 8;
     const expected = "0.25PT";
-    expect(toPT(input, onePThasHours)).toStrictEqual(expected);
+    expect(toPT(input, inputPThasHours, outputPThasHours)).toStrictEqual(
+      expected
+    );
   });
 
   it("can output 0.25PT from 1.5H if 1PT=6H", () => {
     const input = "1.5H";
-    const onePThasHours = 6;
+    const inputPThasHours = 6;
+    const outputPThasHours = 6;
     const expected = "0.25PT";
-    expect(toPT(input, onePThasHours)).toStrictEqual(expected);
+    expect(toPT(input, inputPThasHours, outputPThasHours)).toStrictEqual(
+      expected
+    );
   });
 });
 

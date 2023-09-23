@@ -15,7 +15,7 @@
           />
         </div>
         <div className="w-full sm:max-w-xs">
-          <label htmlFor="onePThasHours" className="sr-only"> 1PT=8H </label>
+          <label htmlFor="onePThasHours-6" className="sr-only"> 1PT=6H </label>
           <input
             v-model="onePThasHours"
             type="radio"
@@ -24,6 +24,7 @@
             className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
             value="6"
           />
+          <label htmlFor="onePThasHours-8" className="sr-only"> 1PT=8H </label>
           <input
             v-model="onePThasHours"
             type="radio"
@@ -42,11 +43,11 @@
       </div>
       <div className="mt-2 max-w-xl text-sm text-gray-500">
         <span class="text-red-500">1PT=6H</span>
-        <p>{{ calculatedPTs(6) }}</p>
+        <p class="outputPThasHours-6">{{ this.calculatedPTs6 }}</p>
       </div>
       <div className="mt-2 max-w-xl text-sm text-gray-500">
         <span class="text-red-500">1PT=8H</span>
-        <p>{{ calculatedPTs(8) }}</p>
+        <p class="outputPThasHours-8">{{ this.calculatedPTs8 }}</p>
       </div>
     </div>
   </div>
@@ -54,6 +55,7 @@
 
 <script lang="ts">
 import { toPT, parseInput, calculateTotalHours } from "@/services/PTFormatter";
+import { computed } from "vue";
 import { Options, Vue } from "vue-class-component";
 
 @Options({})
@@ -61,15 +63,26 @@ export default class Hours extends Vue {
   inputString = "";
   onePThasHours = 6;
 
+  calculatedPTs6 = computed(() => {
+    const output = toPT(this.inputString, this.onePThasHours, 6);
+    console.log(
+      `inputString: ${this.inputString} onePThasHours=6 output: ${output}`
+    );
+    return output;
+  });
+  calculatedPTs8 = computed(() => {
+    const output = toPT(this.inputString, this.onePThasHours, 8);
+    console.log(
+      `inputString: ${this.inputString} onePThasHours=8 output: ${output}`
+    );
+    return output;
+  });
+
   get calculatedHours() {
     return calculateTotalHours(
       parseInput(this.inputString),
       this.onePThasHours
     );
-  }
-
-  calculatedPTs(specialOnePThasHours: number) {
-    return toPT(this.inputString, specialOnePThasHours);
   }
 }
 </script>
