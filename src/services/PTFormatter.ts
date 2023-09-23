@@ -1,19 +1,7 @@
 export function toPT(input: string, inputPThasHours = 6, outputPThasHours = 6) {
   const [weeks, pts, hours] = parseInput(input);
   const totalHours = calculateTotalHours([weeks, pts, hours], inputPThasHours);
-  const totalPT = totalHours / outputPThasHours;
-
-  console.log(
-    `toPT(input: ${input}, inputPThasHours: ${inputPThasHours}, outputPThasHours: ${outputPThasHours})
-    weeks: ${weeks}
-    pts: ${pts}
-    hours: ${hours}
-    totalHours: ${totalHours}
-    totalPT: ${totalPT}
-    `
-  );
-
-  return `${totalPT}PT`;
+  return totalHours / outputPThasHours;
 }
 
 export function calculateTotalHours(input: number[], onePThasHours = 6) {

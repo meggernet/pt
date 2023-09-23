@@ -1,7 +1,5 @@
 <template>
-  <div class="xl justify-center">
-    <Hours />
-  </div>
+  <Hours />
 </template>
 
 <script lang="ts">

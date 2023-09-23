@@ -1,54 +1,71 @@
 <template>
-  <div className="bg-white shadow sm:rounded-lg">
-    <div className="px-4 py-5 sm:p-6">
-      <h3 className="text-base font-semibold leading-6 text-gray-900">Hours</h3>
-      <form className="mt-5 sm:flex sm:items-center">
-        <div className="w-full sm:max-w-xs">
-          <label htmlFor="hours" className="sr-only"> Input </label>
-          <input
-            v-model="inputString"
-            type="text"
-            name="hours"
-            id="hours"
-            className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-            placeholder="1W 3PT 6H"
-          />
-        </div>
-        <div className="w-full sm:max-w-xs">
-          <label htmlFor="onePThasHours-6" className="sr-only"> 1PT=6H </label>
+  <div className="items-center text-center">
+    <h1 className="w-full text-gray-900 font-semibold mb-4">Hours</h1>
+    <form>
+      <div className="w-full mx-auto flex flex-col mb-2">
+        <label htmlFor="hours">Input</label>
+        <input
+          v-model="inputString"
+          type="text"
+          name="hours"
+          id="hours"
+          placeholder="1w 3d 4h"
+          className="p-2"
+        />
+      </div>
+      <div className="flex mb-2">
+        <div className="w-1/2 mx-auto flex flex-col items-center">
+          <label htmlFor="onePThasHours-6"> 1PT=6H </label>
           <input
             v-model="onePThasHours"
             type="radio"
             name="onePThasHours"
             id="onePThasHours-6"
-            className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
             value="6"
           />
-          <label htmlFor="onePThasHours-8" className="sr-only"> 1PT=8H </label>
+        </div>
+        <div className="w-1/2 mx-auto flex flex-col items-center">
+          <label htmlFor="onePThasHours-8"> 1PT=8H </label>
           <input
             v-model="onePThasHours"
             type="radio"
             name="onePThasHours"
             id="onePThasHours-8"
-            className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
             value="8"
           />
         </div>
-      </form>
-      <div className="mt-2 max-w-xl text-sm text-gray-500">
-        <p>InputType {{ onePThasHours }}H</p>
       </div>
-      <div className="mt-2 max-w-xl text-sm text-gray-500">
-        <p>TotalHours {{ calculatedHours }}H</p>
+    </form>
+    <hr className="mb-2" />
+    <div className="w-full mx-auto mb-2 flex">
+      <div className="w-1/6"></div>
+      <div className="w-2/6">
+        <span className="text-red-500">TotalHours</span>
       </div>
-      <div className="mt-2 max-w-xl text-sm text-gray-500">
-        <span class="text-red-500">1PT=6H</span>
-        <p class="outputPThasHours-6">{{ this.calculatedPTs6 }}</p>
+      <div className="w-2/6">
+        <span>{{ calculatedHours }}H</span>
       </div>
-      <div className="mt-2 max-w-xl text-sm text-gray-500">
-        <span class="text-red-500">1PT=8H</span>
-        <p class="outputPThasHours-8">{{ this.calculatedPTs8 }}</p>
+      <div className="w-1/6"></div>
+    </div>
+    <div className="w-full mx-auto mb-2 flex">
+      <div className="w-1/6"></div>
+      <div className="w-2/6">
+        <span className="text-red-500">1PT=6H</span>
       </div>
+      <div className="w-2/6">
+        <span className="outputPThasHours-6">{{ this.calculatedPTs6 }}</span>
+      </div>
+      <div className="w-1/6"></div>
+    </div>
+    <div className="w-full mx-auto mb-2 flex">
+      <div className="w-1/6"></div>
+      <div className="w-2/6">
+        <span className="text-red-500">1PT=8H</span>
+      </div>
+      <div className="w-2/6">
+        <span className="outputPThasHours-8">{{ this.calculatedPTs8 }}</span>
+      </div>
+      <div className="w-1/6"></div>
     </div>
   </div>
 </template>
@@ -65,17 +82,11 @@ export default class Hours extends Vue {
 
   calculatedPTs6 = computed(() => {
     const output = toPT(this.inputString, this.onePThasHours, 6);
-    console.log(
-      `inputString: ${this.inputString} onePThasHours=6 output: ${output}`
-    );
-    return output;
+    return `${output.toFixed(2)} PT`;
   });
   calculatedPTs8 = computed(() => {
     const output = toPT(this.inputString, this.onePThasHours, 8);
-    console.log(
-      `inputString: ${this.inputString} onePThasHours=8 output: ${output}`
-    );
-    return output;
+    return `${output.toFixed(2)} PT`;
   });
 
   get calculatedHours() {
