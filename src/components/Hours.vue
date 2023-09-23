@@ -14,7 +14,29 @@
             placeholder="1W 3PT 6H"
           />
         </div>
+        <div className="w-full sm:max-w-xs">
+          <label htmlFor="onePThasHours" className="sr-only"> 1PT=8H </label>
+          <input
+            v-model="onePThasHours"
+            type="radio"
+            name="onePThasHours"
+            id="onePThasHours-6"
+            className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+            value="6"
+          />
+          <input
+            v-model="onePThasHours"
+            type="radio"
+            name="onePThasHours"
+            id="onePThasHours-8"
+            className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+            value="8"
+          />
+        </div>
       </form>
+      <div className="mt-2 max-w-xl text-sm text-gray-500">
+        <p>InputType {{ onePThasHours }}H</p>
+      </div>
       <div className="mt-2 max-w-xl text-sm text-gray-500">
         <p>TotalHours {{ calculatedHours }}H</p>
       </div>
@@ -37,13 +59,17 @@ import { Options, Vue } from "vue-class-component";
 @Options({})
 export default class Hours extends Vue {
   inputString = "";
+  onePThasHours = 6;
 
   get calculatedHours() {
-    return calculateTotalHours(parseInput(this.inputString));
+    return calculateTotalHours(
+      parseInput(this.inputString),
+      this.onePThasHours
+    );
   }
 
-  calculatedPTs(onePThasHours = 6) {
-    return toPT(this.inputString, onePThasHours);
+  calculatedPTs(specialOnePThasHours: number) {
+    return toPT(this.inputString, specialOnePThasHours);
   }
 }
 </script>

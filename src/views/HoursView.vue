@@ -1,5 +1,5 @@
 <template>
-  <div class="hours">
+  <div class="xl justify-center">
     <Hours />
   </div>
 </template>
