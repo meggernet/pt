@@ -38,8 +38,8 @@ describe("Hours test", () => {
       cy.get("#hours").type("1d");
       cy.get('[name="onePThasHours"]').check("6");
 
-      cy.get(".outputPThasHours-6").contains("1.00 PT");
-      cy.get(".outputPThasHours-8").contains("0.75 PT");
+      cy.get('[data-test="outputPThas6Hours"]').contains("1.00 PT");
+      cy.get('[data-test="outputPThas8Hours"]').contains("0.75 PT");
     });
 
     it("Outputs the correct values on ${size} screen and input (1d / onePThasHours=8)", () => {
@@ -53,8 +53,8 @@ describe("Hours test", () => {
       cy.get("#hours").type("1d");
       cy.get('[name="onePThasHours"]').check("8");
 
-      cy.get(".outputPThasHours-6").contains("1.33 PT");
-      cy.get(".outputPThasHours-8").contains("1.00 PT");
+      cy.get('[data-test="outputPThas6Hours"]').contains("1.33 PT");
+      cy.get('[data-test="outputPThas8Hours"]').contains("1.00 PT");
     });
   });
 });

@@ -72,7 +72,10 @@
         <span className="text-green-500">1PT=6H</span>
       </div>
       <div className="w-2/6">
-        <span className="text-gray-900 dark:text-gray-200 outputPThasHours-6">
+        <span
+          className="text-gray-900 dark:text-gray-200"
+          data-test="outputPThas6Hours"
+        >
           {{ this.calculatedPTs6 }}
         </span>
       </div>
@@ -84,7 +87,10 @@
         <span className="text-green-500">1PT=8H</span>
       </div>
       <div className="w-2/6">
-        <span className="text-gray-900 dark:text-gray-200 outputPThasHours-8">
+        <span
+          className="text-gray-900 dark:text-gray-200"
+          data-test="outputPThas8Hours"
+        >
           {{ this.calculatedPTs8 }}
         </span>
       </div>

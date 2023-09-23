@@ -37,5 +37,38 @@ describe("Hours test", () => {
       cy.visit("/");
       cy.contains("h1", "Hours");
     });
+
+    it("Should be able to switch to light mode on ${size} screen", () => {
+      if (Cypress._.isArray(size)) {
+        cy.viewport(size[0], size[1]);
+      } else {
+        cy.viewport(size);
+      }
+
+      cy.visit("/");
+      cy.get('[data-test="lightModeButton"]').click();
+    });
+
+    it("Should be able to switch to dark mode on ${size} screen", () => {
+      if (Cypress._.isArray(size)) {
+        cy.viewport(size[0], size[1]);
+      } else {
+        cy.viewport(size);
+      }
+
+      cy.visit("/");
+      cy.get('[data-test="darkModeButton"]').click();
+    });
+
+    it("Should be able to switch to system mode on ${size} screen", () => {
+      if (Cypress._.isArray(size)) {
+        cy.viewport(size[0], size[1]);
+      } else {
+        cy.viewport(size);
+      }
+
+      cy.visit("/");
+      cy.get('[data-test="systemModeButton"]').click();
+    });
   });
 });

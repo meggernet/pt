@@ -1,10 +1,11 @@
 <template>
   <div
     className="bg-gray-100 dark:bg-gray-900 flex p-2 text-center items-center"
+    data-test="themeSwitcher"
   >
     <div className="w-1/3">
       <div className="flex flex-col">
-        <button @click="switchToLightMode">
+        <button @click="switchToLightMode" data-test="lightModeButton">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -25,7 +26,7 @@
     </div>
     <div className="w-1/3">
       <div className="flex flex-col">
-        <button @click="switchToDarkMode">
+        <button @click="switchToDarkMode" data-test="darkModeButton">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
@@ -44,7 +45,7 @@
     </div>
     <div className="w-1/3">
       <div className="flex flex-col">
-        <button @click="switchToSystem">
+        <button @click="switchToSystem" data-test="systemModeButton">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
