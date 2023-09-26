@@ -3,11 +3,7 @@
 
 name: Node.js CI
 
-on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+on: push
 
 jobs:
   build:
@@ -31,3 +27,4 @@ jobs:
     - run: npm test
     - name: Node to GH
       uses: FdelMazo/node-to-gh-action@v2
+      if: github.ref == 'refs/heads/main'
