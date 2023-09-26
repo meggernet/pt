@@ -121,7 +121,7 @@ export default class Hours extends Vue {
   get calculatedHours() {
     return calculateTotalHours(
       parseInput(this.inputString),
-      this.onePThasHours
+      this.onePThasHours,
     );
   }
 }
