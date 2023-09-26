@@ -8,7 +8,22 @@
       groups:
         vue:
           patterns:
+            - 'vue*'
             - '@vue*'
+          update-types:
+            - minor
+            - patch
+        typescript:
+          patterns:
+            - 'typescript*'
+            - '@typescript*'
+          update-types:
+            - minor
+            - patch
+        eslint:
+          patterns:
+            - 'eslint*'
+            - '@eslint*'
           update-types:
             - minor
             - patch
