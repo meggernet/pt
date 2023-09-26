@@ -1,4 +1,4 @@
-# megger-hours
+# megger-pt
 
 ## Project setup
 ```
