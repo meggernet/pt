@@ -1,18 +1,25 @@
 name: Dependabot auto-merge
-on: pull_request
+
+on: pull_request_target
 
 permissions:
-  contents: write
   pull-requests: write
+  issues: write
+  repository-projects: write
+  contents: write
 
 jobs:
   dependabot:
+    name: "Auto approve and merge"
     runs-on: ubuntu-latest
     if: ${{ github.actor == 'dependabot[bot]' }}
     steps:
       - name: Dependabot metadata
         id: metadata
         uses: dependabot/fetch-metadata@v1
+        with:
+          github-token: "${{ secrets.GITHUB_TOKEN }}"
+      - uses: hmarr/auto-approve-action@v3
         with:
           github-token: "${{ secrets.GITHUB_TOKEN }}"
       - name: Enable auto-merge for Dependabot PRs
