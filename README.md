@@ -1,9 +1,9 @@
 # megger-pt
 
-[![Node.js CI](https://github.com/m3gg3r/pt/actions/workflows/node.js.yml/badge.svg)](https://github.com/m3gg3r/pt/actions/workflows/node.js.yml) [![cypress](https://github.com/m3gg3r/pt/actions/workflows/cypress.yml/badge.svg)](https://github.com/m3gg3r/pt/actions/workflows/cypress.yml)
+[![Node.js CI](https://github.com/meggernet/pt/actions/workflows/node.js.yml/badge.svg)](https://github.com/meggernet/pt/actions/workflows/node.js.yml) [![cypress](https://github.com/meggernet/pt/actions/workflows/cypress.yml/badge.svg)](https://github.com/meggernet/pt/actions/workflows/cypress.yml)
 
 
-[Application](https://m3gg3r.github.io/pt/)
+[Application](https://meggernet.github.io/pt/)
 
 ## Project setup
 ```
