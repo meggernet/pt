@@ -37,7 +37,7 @@
     "cypress": "^13.3.0",
     "eslint": "^8.51.0",
     "eslint-config-prettier": "^9.0.0",
-    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-prettier": "^5.0.1",
     "eslint-plugin-vue": "^8.0.3",
     "jest": "^27.0.5",
     "postcss": "^8.4.31",
