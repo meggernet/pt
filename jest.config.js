@@ -3,4 +3,5 @@ module.exports = {
   collectCoverage: true,
   collectCoverageFrom: ["<rootDir>/src/**"],
   coverageDirectory: "<rootDir>/.reports/jest/",
+  coverageReporters: ["clover", "json", "json-summary", "lcov", "text"],
 };
