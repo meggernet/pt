@@ -81,6 +81,31 @@ jobs:
             node_modules
       - run: make test-unit
 
+  stryker:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [ 20.x ]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+    needs:
+      - install
+      - unit
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+      - name: Mount Dev Dependency Cache
+        uses: actions/cache@v3
+        with:
+          key: cache-dev-dependencies-${{ github.run_id }}
+          path: |
+            node_modules
+      - run: make test-stryker
+
   # ------------------------------------------------------------------------------------------------------------------------
 
   build-and-publish:
@@ -93,6 +118,7 @@ jobs:
       - install
       - lint
       - unit
+      - stryker
 
     steps:
     - uses: actions/checkout@v3

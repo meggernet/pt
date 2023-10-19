@@ -20,3 +20,6 @@ lint: ## Starts the linter
 
 test-unit: ## Starts all unit tests
 	npm run test:unit --coverage
+
+test-stryker: ## Starts tests with stryker
+	npm run test:stryker
