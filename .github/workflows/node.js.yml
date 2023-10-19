@@ -84,6 +84,7 @@ jobs:
         with:
           name: test-unit-report
           path: .reports
+          retention-days: 1
 
   stryker:
     runs-on: ubuntu-latest
@@ -113,6 +114,7 @@ jobs:
         with:
           name: test-stryker-report
           path: .reports
+          retention-days: 1
 
   publish-test-results:
     runs-on: ubuntu-latest
