@@ -7,7 +7,7 @@ describe("PTFormatter => toPT", () => {
     const outputPThasHours = 6;
     const expected = 5;
     expect(toPT(input, inputPThasHours, outputPThasHours)).toStrictEqual(
-      expected
+      expected,
     );
   });
 
@@ -17,7 +17,7 @@ describe("PTFormatter => toPT", () => {
     const outputPThasHours = 6;
     const expected = 5;
     expect(toPT(input, inputPThasHours, outputPThasHours)).toStrictEqual(
-      expected
+      expected,
     );
   });
 
@@ -28,7 +28,7 @@ describe("PTFormatter => toPT", () => {
     const expected = 1;
 
     expect(toPT(input, inputPThasHours, outputPThasHours)).toStrictEqual(
-      expected
+      expected,
     );
   });
 
@@ -39,7 +39,7 @@ describe("PTFormatter => toPT", () => {
     const expected = 0.75;
 
     expect(toPT(input, inputPThasHours, outputPThasHours)).toStrictEqual(
-      expected
+      expected,
     );
   });
 
@@ -50,7 +50,7 @@ describe("PTFormatter => toPT", () => {
     const expected = 1.3333333333333333;
 
     expect(toPT(input, inputPThasHours, outputPThasHours)).toStrictEqual(
-      expected
+      expected,
     );
   });
 
@@ -61,7 +61,7 @@ describe("PTFormatter => toPT", () => {
     const expected = 1;
 
     expect(toPT(input, inputPThasHours, outputPThasHours)).toStrictEqual(
-      expected
+      expected,
     );
   });
 
@@ -78,12 +78,12 @@ describe("PTFormatter => toPT", () => {
       input: string,
       inputPThasHours: number,
       outputPThasHours: number,
-      expected: number
+      expected: number,
     ) => {
       expect(toPT(input, inputPThasHours, outputPThasHours)).toStrictEqual(
-        expected
+        expected,
       );
-    }
+    },
   );
 
   it.each([
@@ -100,12 +100,12 @@ describe("PTFormatter => toPT", () => {
       input: string,
       inputPThasHours: number,
       outputPThasHours: number,
-      expected: number
+      expected: number,
     ) => {
       expect(toPT(input, inputPThasHours, outputPThasHours)).toStrictEqual(
-        expected
+        expected,
       );
-    }
+    },
   );
 });
 
@@ -116,7 +116,7 @@ describe("PTFormatter => Hours to PT", () => {
     const outputPThasHours = 8;
     const expected = 1;
     expect(toPT(input, inputPThasHours, outputPThasHours)).toStrictEqual(
-      expected
+      expected,
     );
   });
 
@@ -126,7 +126,7 @@ describe("PTFormatter => Hours to PT", () => {
     const outputPThasHours = 6;
     const expected = 1;
     expect(toPT(input, inputPThasHours, outputPThasHours)).toStrictEqual(
-      expected
+      expected,
     );
   });
 
@@ -136,7 +136,7 @@ describe("PTFormatter => Hours to PT", () => {
     const outputPThasHours = 8;
     const expected = 0.5;
     expect(toPT(input, inputPThasHours, outputPThasHours)).toStrictEqual(
-      expected
+      expected,
     );
   });
 
@@ -146,7 +146,7 @@ describe("PTFormatter => Hours to PT", () => {
     const outputPThasHours = 6;
     const expected = 0.5;
     expect(toPT(input, inputPThasHours, outputPThasHours)).toStrictEqual(
-      expected
+      expected,
     );
   });
 
@@ -156,7 +156,7 @@ describe("PTFormatter => Hours to PT", () => {
     const outputPThasHours = 8;
     const expected = 0.25;
     expect(toPT(input, inputPThasHours, outputPThasHours)).toStrictEqual(
-      expected
+      expected,
     );
   });
 
@@ -166,7 +166,7 @@ describe("PTFormatter => Hours to PT", () => {
     const outputPThasHours = 6;
     const expected = 0.25;
     expect(toPT(input, inputPThasHours, outputPThasHours)).toStrictEqual(
-      expected
+      expected,
     );
   });
 });
@@ -237,7 +237,7 @@ describe("PTFormatter => parseInput", () => {
     "can parse more complex inputs '%s'",
     (input: string, expected: number[]) => {
       expect(parseInput(input)).toStrictEqual(expected);
-    }
+    },
   );
 });
 
@@ -275,7 +275,7 @@ describe("PTFormatter => calculateTotalHours", () => {
     `can calculate total hours for input '%s'`,
     (input, onePThasHours, expected) => {
       expect(calculateTotalHours(input, onePThasHours)).toStrictEqual(expected);
-    }
+    },
   );
 
   it("can calculate special case [0, 0, 0.33]", () => {
