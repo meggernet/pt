@@ -28,7 +28,6 @@ jobs:
       with:
         key: cache-dev-dependencies-${{ github.run_id }}
         path: |
-          .reports
           node_modules
     - run: make install
 
@@ -54,7 +53,6 @@ jobs:
         with:
           key: cache-dev-dependencies-${{ github.run_id }}
           path: |
-            .reports
             node_modules
       - run: make lint
 
@@ -80,9 +78,12 @@ jobs:
         with:
           key: cache-dev-dependencies-${{ github.run_id }}
           path: |
-            .reports
             node_modules
       - run: make test-unit
+      - uses: actions/upload-artifact@v3
+        with:
+          name: test-unit-report
+          path: .reports
 
   stryker:
     runs-on: ubuntu-latest
@@ -106,9 +107,12 @@ jobs:
         with:
           key: cache-dev-dependencies-${{ github.run_id }}
           path: |
-            .reports
             node_modules
       - run: make test-stryker
+      - uses: actions/upload-artifact@v3
+        with:
+          name: test-stryker-report
+          path: .reports
 
   publish-test-results:
     runs-on: ubuntu-latest
@@ -134,8 +138,15 @@ jobs:
         with:
           key: cache-dev-dependencies-${{ github.run_id }}
           path: |
-            .reports
             node_modules
+      - uses: actions/download-artifact@v3
+        with:
+          name: test-unit-report
+          path: .reports
+      - uses: actions/download-artifact@v3
+        with:
+          name: test-stryker-report
+          path: .reports
       - name: Jest Coverage Comment
         uses: MishaKav/jest-coverage-comment@main
         with:
@@ -167,7 +178,6 @@ jobs:
       with:
         key: cache-dev-dependencies-${{ github.run_id }}
         path: |
-          .reports
           node_modules
 
     - run: npm run build --if-present
