@@ -1,9 +1,9 @@
 <template>
   <div
-    className="bg-gray-100 dark:bg-gray-900 flex p-2 text-center items-center"
+    className="bg-gray-100 dark:bg-gray-900 lg:flex p-2 text-center items-center"
     data-test="themeSwitcher"
   >
-    <div className="lg:w-1/2 lg:mx-auto lg:flex">
+    <div className="lg:w-1/2 lg:mx-auto flex">
       <div className="w-1/3">
         <div className="flex flex-col">
           <button @click="switchToLightMode" data-test="lightModeButton">
