@@ -22,4 +22,11 @@ test-unit: ## Starts all unit tests
 	npm run test:unit --coverage
 
 test-stryker: ## Starts tests with stryker
+	rm -rf ./.stryker-tmp
 	npm run test:stryker
+
+# ------------------------------------------------------------------------------------------------------------
+
+open-test-reports: ## Opens the test reports
+	open ./.reports/jest/lcov-report/index.html
+	open ./.reports/stryker/report.html

@@ -6,18 +6,28 @@
   "jest": {
     "projectType": "custom",
     "configFile": "jest.config.js",
+    "config": {
+      "testEnvironment": "jsdom"
+    },
     "enableFindRelatedTests": true
   },
   "reporters": [
     "html",
+    "json",
     "progress"
   ],
   "htmlReporter": {
     "fileName": "./.reports/stryker/report.html"
   },
+  "jsonReporter": {
+    "fileName": "./.reports/stryker/report.json"
+  },
   "thresholds": {
     "high": 80,
     "low": 60,
     "break": 10
-  }
+  },
+  "disableTypeChecks": "src/**/*.{js,ts,jsx,tsx,html,vue}",
+  "checkers": ["typescript"],
+  "tsconfigFile": "tsconfig.json"
 }

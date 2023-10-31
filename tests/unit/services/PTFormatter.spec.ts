@@ -107,6 +107,23 @@ describe("PTFormatter => toPT", () => {
       );
     },
   );
+
+  it.each([
+    ["1w", 6, 8, 3.75],
+    ["1w", 8, 6, 6.666666666666667],
+  ])(
+    "can format more complex inputs with different output hours '%s' to PT",
+    (
+      input: string,
+      inputPThasHours: number,
+      outputPThasHours: number,
+      expected: number,
+    ) => {
+      expect(toPT(input, inputPThasHours, outputPThasHours)).toStrictEqual(
+        expected,
+      );
+    },
+  );
 });
 
 describe("PTFormatter => Hours to PT", () => {
