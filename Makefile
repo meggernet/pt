@@ -22,6 +22,7 @@ test-unit: ## Starts all unit tests
 	npm run test:unit --coverage
 
 test-stryker: ## Starts tests with stryker
+	rm -rf ./.stryker-tmp
 	npm run test:stryker
 
 # ------------------------------------------------------------------------------------------------------------
