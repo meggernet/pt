@@ -27,3 +27,10 @@
           update-types:
             - minor
             - patch
+        stryker-mutator:
+          patterns:
+            - 'stryker-mutator*'
+            - '@stryker-mutator*'
+          update-types:
+            - minor
+            - patch
