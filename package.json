@@ -11,7 +11,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "core-js": "^3.35.0",
+    "core-js": "^3.35.1",
     "vue": "^3.4.15",
     "vue-class-component": "^8.0.0-0",
     "vue-router": "^4.2.5",
