@@ -13,7 +13,7 @@ jobs:
         with:
           start: npm run serve
           wait-on: http://localhost:8080/
-          config-file: cypress.json
+          config-file: cypress.config.ts
           spec: "tests/e2e/**/*"
         env:
           CYPRESS_baseUrl: http://localhost:8080/
