@@ -11,6 +11,7 @@
             - 'vue*'
             - '@vue*'
           update-types:
+            - major
             - minor
             - patch
         typescript:
@@ -18,13 +19,16 @@
             - 'typescript*'
             - '@typescript*'
           update-types:
+            - major
             - minor
             - patch
         eslint:
           patterns:
             - 'eslint*'
             - '@eslint*'
+            - '@typescript-eslint*'
           update-types:
+            - major
             - minor
             - patch
         stryker-mutator:
@@ -32,5 +36,22 @@
             - 'stryker-mutator*'
             - '@stryker-mutator*'
           update-types:
+            - major
             - minor
             - patch
+        jest:
+          patterns:
+            - 'jest*'
+            - 'ts-jest*'
+            - 'babel-jest*'
+            - '*-jest'
+            - '@types/jest'
+          update-types:
+            - major
+            - minor
+            - patch
+    - package-ecosystem: "github-actions"
+      directory: "/"
+      schedule:
+        interval: "weekly"
+      open-pull-requests-limit: 10
