@@ -17,14 +17,14 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - name: Mount Dev Dependency Cache
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         key: cache-dev-dependencies-${{ github.run_id }}
         path: |
@@ -42,14 +42,14 @@ jobs:
     needs: install
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
       - name: Mount Dev Dependency Cache
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           key: cache-dev-dependencies-${{ github.run_id }}
           path: |
@@ -67,20 +67,20 @@ jobs:
     needs: install
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
       - name: Mount Dev Dependency Cache
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           key: cache-dev-dependencies-${{ github.run_id }}
           path: |
             node_modules
       - run: make test-unit
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: test-unit-report
           path: .reports
@@ -97,20 +97,20 @@ jobs:
       - unit
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
       - name: Mount Dev Dependency Cache
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           key: cache-dev-dependencies-${{ github.run_id }}
           path: |
             node_modules
       - run: make test-stryker
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: test-stryker-report
           path: .reports
@@ -129,23 +129,23 @@ jobs:
     if: github.event_name == 'pull_request'
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
       - name: Mount Dev Dependency Cache
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           key: cache-dev-dependencies-${{ github.run_id }}
           path: |
             node_modules
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4
         with:
           name: test-unit-report
           path: .reports
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4
         with:
           name: test-stryker-report
           path: .reports
@@ -173,14 +173,14 @@ jobs:
       - stryker
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - name: Mount Dev Dependency Cache
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         key: cache-dev-dependencies-${{ github.run_id }}
         path: |
