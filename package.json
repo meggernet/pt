@@ -23,8 +23,8 @@
     "@stryker-mutator/typescript-checker": "^8.2.6",
     "@tailwindcss/forms": "^0.5.7",
     "@types/jest": "^27.5.2",
-    "@typescript-eslint/eslint-plugin": "^7.15.0",
-    "@typescript-eslint/parser": "^7.15.0",
+    "@typescript-eslint/eslint-plugin": "^8.8.1",
+    "@typescript-eslint/parser": "^8.8.1",
     "@vue/cli-plugin-babel": "~5.0.0",
     "@vue/cli-plugin-e2e-cypress": "~5.0.0",
     "@vue/cli-plugin-eslint": "~5.0.0",
@@ -50,6 +50,6 @@
     "sass-loader": "^14.2.1",
     "tailwindcss": "^3.4.4",
     "ts-jest": "^27.1.5",
-    "typescript": "^4.9.5"
+    "typescript": "^5.6.2"
   }
 }
