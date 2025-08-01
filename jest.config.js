@@ -4,7 +4,5 @@ module.exports = {
   collectCoverageFrom: ["<rootDir>/src/**"],
   coverageDirectory: "<rootDir>/.reports/jest/",
   coverageReporters: ["clover", "json", "json-summary", "lcov", "text"],
-  coveragePathIgnorePatterns: [
-    "src/main.ts"
-  ],
+  coveragePathIgnorePatterns: ["src/main.ts"],
 };
