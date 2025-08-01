@@ -190,7 +190,7 @@ jobs:
     - name: publish to gh
       uses: ./.github/actions/vue-publish
       with:
-        username: 'm3gg3r'
+        username: 'meggernet'
         reponame: 'pt'
         token: ${{ secrets.GITHUB_TOKEN }} # Leave this line unchanged
       if: github.ref == 'refs/heads/main'
