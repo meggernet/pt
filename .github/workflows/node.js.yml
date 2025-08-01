@@ -83,7 +83,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: test-unit-report
-          path: ./.reports
+          path: ./.reports/**
           retention-days: 1
 
   stryker:
