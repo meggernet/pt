@@ -79,7 +79,7 @@ jobs:
           key: cache-dev-dependencies-${{ github.run_id }}
           path: |
             node_modules
-      - run: make test-unit
+      - run: make test-unit && ls -ahl ./
       - uses: actions/upload-artifact@v4
         with:
           name: test-unit-report
@@ -109,7 +109,7 @@ jobs:
           key: cache-dev-dependencies-${{ github.run_id }}
           path: |
             node_modules
-      - run: make test-stryker
+      - run: make test-stryker && ls -ahl ./
       - uses: actions/upload-artifact@v4
         with:
           name: test-stryker-report
