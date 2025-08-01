@@ -14,6 +14,7 @@ install: ## Install all dependencies
 	npm ci
 
 # ------------------------------------------------------------------------------------------------------------
+test: lint test-unit test-stryker
 
 lint: ## Starts the linter
 	npm run lint

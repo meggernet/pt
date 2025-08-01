@@ -1,12 +1,12 @@
-import { mount } from '@vue/test-utils';
+import { mount } from "@vue/test-utils";
 import ThemeSwitcher from "@/components/ThemeSwitcher.vue";
 
-describe('ThemeSwitcherComponent', () => {
-  it('renders', () => {
+describe("ThemeSwitcherComponent", () => {
+  it("renders", () => {
     const wrapper = mount(ThemeSwitcher);
     expect(wrapper.exists()).toBe(true);
 
-    let content = wrapper.html();
+    const content = wrapper.html();
 
     expect(content).toContain('data-test="themeSwitcher"');
 
@@ -15,4 +15,3 @@ describe('ThemeSwitcherComponent', () => {
     expect(content).toContain('data-test="systemModeButton"');
   });
 });
-
