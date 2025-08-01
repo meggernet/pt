@@ -13,6 +13,9 @@ help:
 install: ## Install all dependencies
 	npm ci
 
+build: ## Builds the project
+	npm run build
+
 # ------------------------------------------------------------------------------------------------------------
 test: lint test-unit test-stryker test-e2e-headless
 
