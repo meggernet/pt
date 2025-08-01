@@ -84,6 +84,7 @@ jobs:
         with:
           name: test-unit-report
           path: ./.reports/**
+          include-hidden-files: true
           retention-days: 1
 
   stryker:
