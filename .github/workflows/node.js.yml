@@ -143,11 +143,11 @@ jobs:
           key: cache-dev-dependencies-${{ github.run_id }}
           path: |
             node_modules
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v6
         with:
           name: test-unit-report
           path: .reports
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v6
         with:
           name: test-stryker-report
           path: .reports
