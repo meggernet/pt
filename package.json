@@ -47,7 +47,7 @@
     "jest": "^27.5.1",
     "postcss": "^8.5.6",
     "prettier": "^3.6.2",
-    "sass": "^1.94.1",
+    "sass": "^1.94.2",
     "sass-loader": "^16.0.6",
     "tailwindcss": "^3.4.17",
     "ts-jest": "^27.1.5",
