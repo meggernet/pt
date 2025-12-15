@@ -80,7 +80,7 @@ jobs:
           path: |
             node_modules
       - run: make test-unit
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v6
         with:
           name: test-unit-report
           path: .reports
@@ -111,7 +111,7 @@ jobs:
           path: |
             node_modules
       - run: make test-stryker
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v6
         with:
           name: test-stryker-report
           path: .reports
